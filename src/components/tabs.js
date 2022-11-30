@@ -26,7 +26,6 @@ const Tabs = (topics) => {
   // </div>
   //
 }
-console.log(axios.get('http://localhost:5001/api/topics'));
 const tabsAppender = (selector) => {
   axios.get('http://localhost:5001/api/topics')
     .then(response => {

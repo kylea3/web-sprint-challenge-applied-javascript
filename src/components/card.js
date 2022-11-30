@@ -1,3 +1,7 @@
+// import { ContextExclusionPlugin } from "webpack";
+import axios from "axios";
+
+
 const Card = (article) => {
   const card = document.createElement('div');
   const headline = document.createElement('div');
@@ -44,6 +48,22 @@ const Card = (article) => {
 }
 
 const cardAppender = (selector) => {
+  console.log(axios.get('http://localhost:5001/api/articles'))
+  axios.get('http://localhost:5001/api/articles')
+    .then( response => {
+      let info = response.data.articles;
+      console.log(info);
+      for (const property in info) {
+        for (let i = 0; i < info[property].length; i++) {
+          document.querySelector(selector).appendChild(Card(info[property][i]));
+        }
+        console.log(info[property].length);
+        console.log(`${property}: ${info[property]}`);
+      }
+    })
+    .catch( err => {
+      console.log(`Error ${err}`);
+    })
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
