@@ -1,4 +1,19 @@
 const Tabs = (topics) => {
+  const divTopics = document.createElement('div');
+  const divTop1 = document.createElement('div');
+  const divTop2 = document.createElement('div');
+  const divTop3 = document.createElement('div');
+  divTopics.classList.add('topics');
+  divTop1.classList.add('tab');
+  divTop2.classList.add('tab');
+  divTop3.classList.add('tab');
+  divTopics.appendChild(divTop1);
+  divTopics.appendChild(divTop2);
+  divTopics.appendChild(divTop3);
+  divTop1.textContent = topics[0];
+  divTop2.textContent = topics[1];
+  divTop3.textContent = topics[2];
+  return divTopics;
   // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
